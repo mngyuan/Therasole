@@ -4,24 +4,7 @@
 
 <body>
   <div class="container">
-    <header>
-      <h1>Todo List</h1>
-
-      <label class="hide-completed">
-        <input type="checkbox" checked="{{hideCompleted}}" />
-        Hide completed tasks
-      </label>
-      <form class="new-task">
-        <input type="text" name="text" placeholder="Type to add new tasks"/>
-      </form>
-    </header>
-
-    <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
-
+    <div id="app"></div>
   </div>
 </body>
 
@@ -33,4 +16,13 @@
 
     <span class="text">{{text}}</span>
   </li>
+</template>
+
+
+<template name="tasklist">
+  <ul>
+    {{#each tasks}}
+      {{> task}}
+    {{/each}}
+  </ul>
 </template>
