@@ -1,10 +1,5 @@
 Tasks = new Mongo.Collection("tasks");
 
-// Router.route('/share');
-Router.route('/graphs');
-Router.route('/settings');
-Router.route('/heatmap');
-Router.route('/balance');
 Router.route('/', {
   name     : 'landing',
   template : 'landing'
@@ -12,6 +7,11 @@ Router.route('/', {
 Router.configure({
   layoutTemplate: 'main'
 });
+Router.route('/heatmap');
+Router.route('/balance');
+Router.route('/graphs');
+// Router.route('/share');
+Router.route('/settings');
 
 if (Meteor.isClient) {
   Template.body.helpers({

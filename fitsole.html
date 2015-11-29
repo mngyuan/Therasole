@@ -26,10 +26,10 @@
 <template name="navigation">
   <nav>
     <ul>
-      <li><a href="{{pathFor route='heatmap'}}">Heatmap</a></li>
-      <li><a href="{{pathFor route='graphs'}}">Graphs</a></li>
+      <li class="{{isActiveRoute regex='heatmap|balance'}}"><a href="{{pathFor route='heatmap'}}">Heatmap</a></li>
+      <li class="{{isActiveRoute 'graphs'}}"><a href="{{pathFor route='graphs'}}">Graphs</a></li>
       <li><a>Share</a></li>
-      <li><a href="{{pathFor route='settings'}}">Settings</a></li>
+      <li class="{{isActiveRoute 'settings'}}"><a href="{{pathFor route='settings'}}">Settings</a></li>
     </ul>
   </nav>
 </template>
