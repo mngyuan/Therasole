@@ -2,11 +2,23 @@
   <title>meteortut</title>
 </head>
 
-<body>
+<template name="main">
   <div class="container">
-    <div id="app"></div>
+    {{> yield}}
+
+    <nav>
+      <ul>
+        <li><a>Heatmap</a></li>
+        <li><a>Graphs</a></li>
+        <li><a>Share</a></li>
+        <li><a>Settings</a></li>
+      </ul>
+    </nav>
+    <footer>
+    </footer>
+
   </div>
-</body>
+</template>
 
 <template name="task">
   <li class="{{#if checked}}checked{{/if}}">
@@ -18,8 +30,40 @@
   </li>
 </template>
 
+<template name="graphs">
+  <header>
+    <h1>Graphs</h1>
+  </header>
+</template>
 
-<template name="tasklist">
+<template name="settings">
+  <header>
+    <h1>Settings</h1>
+  </header>
+  <ul>
+    <li><a href="{{pathFor route='landing'}}">About</a></li>
+  </ul>
+</template>
+
+<template name="heatmap">
+  <header>
+    <h1>Heatmap</h1>
+  </header>
+</template>
+
+<template name="landing">
+  <header>
+    <h1>Todo List</h1>
+
+    <label class="hide-completed">
+      <input type="checkbox" checked="{{hideCompleted}}" />
+      Hide completed tasks
+    </label>
+    <form class="new-task">
+      <input type="text" name="text" placeholder="Type to add new tasks"/>
+    </form>
+  </header>
+
   <ul>
     {{#each tasks}}
       {{> task}}
