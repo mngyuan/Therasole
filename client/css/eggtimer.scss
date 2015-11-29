@@ -1,0 +1,26 @@
+@import 'styleguide';
+$eggtimer-height: 40px;
+
+.eggtimer-wrapper {
+  height: $eggtimer-height;
+  width: 100%;
+  overflow: hidden;
+  line-height: $eggtimer-height;
+
+  .timeline {
+    height: $eggtimer-height;
+    text-align: center;
+
+    .timeline-segment {
+      width: 8px;
+      text-align: center;
+      display: inline-block;
+      color: $inactive;
+      position: relative;
+
+      .timeline-major {
+        font-size: 20px;
+      }
+    }
+  }
+}
