@@ -16,6 +16,24 @@ html, body {
   position: relative;
 }
 
+a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+
+  &.back {
+    color: #ddd;
+  }
+
+  &.inactive {
+    color: #ddd;
+  }
+}
+
+p {
+  color: #444;
+}
+
 header {
   padding: 20px 15px 15px 15px;
   position: relative;
@@ -28,6 +46,10 @@ h1 {
   margin-bottom: 10px;
   display: inline-block;
   margin-right: 1em;
+}
+
+h2 {
+  margin: 0;
 }
 
 form {
@@ -69,22 +91,24 @@ li {
   position: relative;
   list-style: none;
   padding: 15px;
+}
+li.item {
   border-bottom: #eee solid 1px;
 }
 
-li .text {
+li.item .text {
   margin-left: 10px;
 }
 
-li.checked {
+li.item.checked {
   color: #888;
 }
 
-li.checked .text {
+li.item.checked .text {
   text-decoration: line-through;
 }
 
-li.private {
+li.item.private {
   background: #eee;
   border-color: #ddd;
 }

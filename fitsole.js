@@ -4,6 +4,7 @@ Tasks = new Mongo.Collection("tasks");
 Router.route('/graphs');
 Router.route('/settings');
 Router.route('/heatmap');
+Router.route('/balance');
 Router.route('/', {
   name     : 'landing',
   template : 'landing'

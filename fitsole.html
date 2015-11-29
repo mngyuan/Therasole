@@ -5,15 +5,8 @@
 <template name="main">
   <div class="container">
     {{> yield}}
+    {{> navigation}}
 
-    <nav>
-      <ul>
-        <li><a>Heatmap</a></li>
-        <li><a>Graphs</a></li>
-        <li><a>Share</a></li>
-        <li><a>Settings</a></li>
-      </ul>
-    </nav>
     <footer>
     </footer>
 
@@ -21,7 +14,7 @@
 </template>
 
 <template name="task">
-  <li class="{{#if checked}}checked{{/if}}">
+  <li class="item {{#if checked}}checked{{/if}}">
     <button class="delete">&times;</button>
 
     <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
@@ -30,30 +23,59 @@
   </li>
 </template>
 
+<template name="navigation">
+  <nav>
+    <ul>
+      <li><a href="{{pathFor route='heatmap'}}">Heatmap</a></li>
+      <li><a href="{{pathFor route='graphs'}}">Graphs</a></li>
+      <li><a>Share</a></li>
+      <li><a href="{{pathFor route='settings'}}">Settings</a></li>
+    </ul>
+  </nav>
+</template>
+
 <template name="graphs">
   <header>
-    <h1>Graphs</h1>
+    <h1><a class="back" href="{{pathFor route='landing'}}">&lt;</a> Graphs</h1>
   </header>
 </template>
 
 <template name="settings">
   <header>
-    <h1>Settings</h1>
+    <h1><a class="back" href="{{pathFor route='landing'}}">&lt;</a> Settings</h1>
   </header>
   <ul>
     <li><a href="{{pathFor route='landing'}}">About</a></li>
+    <li><ul><h2>Pairing</h2>
+      <li>Device info</li>
+    </ul></li>
+    <li><ul><h2>Backup</h2>
+      <li>Save to Google Drive</li>
+    </ul></li>
   </ul>
 </template>
 
 <template name="heatmap">
   <header>
-    <h1>Heatmap</h1>
+    <h1>
+      <a class="back" href="{{pathFor route='landing'}}">&lt;</a>
+      <a>Heatmap</a> | <a class="inactive" href="{{pathFor route='balance'}}">Balance</a>
+    </h1>
+  </header>
+</template>
+
+<template name="balance">
+  <header>
+    <h1>
+      <a class="back" href="{{pathFor route='landing'}}">&lt;</a>
+      <a class="inactive" href="{{pathFor route='heatmap'}}">Heatmap</a> | <a>Balance</a>
+    </h1>
   </header>
 </template>
 
 <template name="landing">
   <header>
-    <h1>Todo List</h1>
+    <h1>FitSole</h1>
 
     <label class="hide-completed">
       <input type="checkbox" checked="{{hideCompleted}}" />
