@@ -1,5 +1,6 @@
 @import 'styleguide';
 $eggtimer-height: 40px;
+$tick-width: 8px;
 
 .eggtimer-wrapper {
   height: $eggtimer-height;
@@ -10,12 +11,17 @@ $eggtimer-height: 40px;
   .timeline {
     height: $eggtimer-height;
     text-align: center;
+    color: $inactive;
+
+    .segment-text {
+      display: inline-block;
+      width: $tick-width * 4 + 4*4; /* figure this out */
+    }
 
     .timeline-segment {
-      width: 8px;
+      width: $tick-width;
       text-align: center;
       display: inline-block;
-      color: $inactive;
       position: relative;
 
       .timeline-major {
