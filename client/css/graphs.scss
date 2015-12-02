@@ -1,0 +1,22 @@
+@import 'styleguide';
+
+svg#barchart {
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: $inactive;
+    shape-rendering: crispEdges;
+  }
+
+  .bar {
+    fill: steelblue;
+  }
+
+  .x.axis path {
+    display: none;
+  }
+
+  text {
+    fill: $offblack;
+  }
+}
