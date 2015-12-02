@@ -7,6 +7,7 @@
   </header>
 
   {{>eggtimer}}
+  {{>heatmapgraph}}
 </template>
 
 <template name="balance">
@@ -16,4 +17,33 @@
       <a class="inactive" href="{{pathFor route='heatmap'}}">Heatmap</a> | <a>Balance</a>
     </h1>
   </header>
+</template>
+
+<template name="heatmapgraph">
+  <svg id="heatmapgraph"><!-- what if we need multiple barcharts on one page --></svg>
+</template>
+
+<template name="eggtimer">
+  <div class="eggtimer-wrapper">
+    <div class="timeline">
+      {{#each mark in marks}}
+        <div class="segment-text">{{mark}}</div>
+      {{/each}}
+      <br>
+      {{#each mark in marks}}
+        <div class="timeline-segment">
+          <div class="timeline-major">|</div>
+        </div>
+        <div class="timeline-segment">
+          <div class="timeline-minor">|</div>
+        </div>
+        <div class="timeline-segment">
+          <div class="timeline-minor">|</div>
+        </div>
+        <div class="timeline-segment">
+          <div class="timeline-minor">|</div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
 </template>
