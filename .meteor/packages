@@ -23,3 +23,7 @@ iron:router
 zimme:active-route
 d3js:d3
 ostrio:iron-router-title
+meteorhacks:npm
+
+
+npm-container

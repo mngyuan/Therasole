@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "noble": {
+      "version": "1.2.1",
+      "dependencies": {
+        "debug": {
+          "version": "2.2.0",
+          "dependencies": {
+            "ms": {
+              "version": "0.7.1"
+            }
+          }
+        },
+        "bplist-parser": {
+          "version": "0.0.6"
+        },
+        "xpc-connection": {
+          "version": "0.1.4",
+          "dependencies": {
+            "nan": {
+              "version": "2.1.0"
+            }
+          }
+        }
+      }
+    }
+  }
+}
