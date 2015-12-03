@@ -4,8 +4,16 @@ Template.barchart.onRendered(function() {
     filter = "day";
   }
   console.log(filter);
-  
-  var mockdata = `State,Under 5 Years,5 to 13 Years,14 to 17 Years,18 to 24 Years,25 to 44 Years,45 to 64 Years,65 Years and Over
+
+  var data = d3.csv.parse(mockdata);
+  Tracker.autorun(_ => {
+    updateData(data, filter);
+  });
+});
+
+Template.barchart.helpers({
+  graphdata: _ => {
+    var mockdata = `State,Under 5 Years,5 to 13 Years,14 to 17 Years,18 to 24 Years,25 to 44 Years,45 to 64 Years,65 Years and Over
 AL,310504,552339,259034,450818,1231572,1215966,641667
 AK,52083,85640,42153,74257,198724,183159,50277
 AZ,515910,828669,362642,601943,1804762,1523681,862573
@@ -57,6 +65,11 @@ WA,433119,750274,357782,610378,1850983,1762811,783877
 WV,105435,189649,91074,157989,470749,514505,285067
 WI,362277,640286,311849,553914,1487457,1522038,750146
 WY,38253,60890,29314,53980,137338,147279,65614`;
+    return mockdata;
+  }
+});
+
+function updateData(data, filter) {
   // is there a way to not hardcode widths?
   var margin = { top: 20, right: 20, bottom: 30, left: 40 };
   var width  = 600 - margin.left - margin.right;
@@ -83,7 +96,15 @@ WY,38253,60890,29314,53980,137338,147279,65614`;
     .append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-  var data = d3.csv.parse(mockdata);
+  if (filter == 'day') {
+    data = data.filter(v => { return v > "GG"; });
+    console.log('day', data);
+  } else if (filter == 'week') {
+    data = data.filter(v => { return v > "OO"; });
+    console.log('week', data);
+  } else if (filter == 'month') {
+    // don't filter anything
+  }
 
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "State"; }));
 
@@ -145,4 +166,4 @@ WY,38253,60890,29314,53980,137338,147279,65614`;
       .attr("dy", ".35em")
       .style("text-anchor", "end")
       .text(function(d) { return d; });
-});
+}
