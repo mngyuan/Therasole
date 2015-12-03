@@ -7,5 +7,9 @@
 </template>
 
 <template name="barchart">
+  <div id="barchart_filter">
+    <a class="{{isActivePath '/graphs/day'}}" href="{{pathFor route='graphs'}}/day">Day</a> | <a class="{{isActivePath '/graphs/week'}}" href="{{pathFor route='graphs'}}/week">Week</a> | <a class="{{isActivePath '/graphs/month'}}" href="{{pathFor route='graphs'}}/month">Month</a>
+  </div>
+  <!-- {{filter}} -->
   <svg id="barchart"><!-- what if we need multiple barcharts on one page --></svg>
 </template>

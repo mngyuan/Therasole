@@ -1,4 +1,10 @@
-Template.barchart.onRendered(_ => {
+Template.barchart.onRendered(function() {
+  var filter = this.data ? this.data.filter : "day";
+  if (filter !== "day" && filter !== "week" && filter !== "month") {
+    filter = "day";
+  }
+  console.log(filter);
+  
   var mockdata = `State,Under 5 Years,5 to 13 Years,14 to 17 Years,18 to 24 Years,25 to 44 Years,45 to 64 Years,65 Years and Over
 AL,310504,552339,259034,450818,1231572,1215966,641667
 AK,52083,85640,42153,74257,198724,183159,50277
