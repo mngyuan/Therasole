@@ -1,25 +1,31 @@
 @import 'styleguide';
-$eggtimer-height: 40px;
+$eggtimer-height: 80px;
 $tick-width: 8px;
+$segment-width: $tick-width*4 + 12;
+$timeline-width: $segment-width*24 + 100;
 
 .eggtimer-wrapper {
   height: $eggtimer-height;
   width: 100%;
-  overflow: hidden;
-  line-height: $eggtimer-height;
+  overflow: scroll;
 
   .timeline {
     height: $eggtimer-height;
+    width: $timeline-width;
     text-align: center;
     color: $inactive;
 
     .segment-text {
+      height: $eggtimer-height/2;
+      line-height: $eggtimer-height/2;
       display: inline-block;
-      width: $tick-width * 4 + 4*4; /* figure this out */
+      width: $segment-width;
     }
 
     .timeline-segment {
       width: $tick-width;
+      height: $eggtimer-height/2;
+      line-height: $eggtimer-height/2;
       text-align: center;
       display: inline-block;
       position: relative;
