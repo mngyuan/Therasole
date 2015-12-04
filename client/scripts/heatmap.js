@@ -47,8 +47,8 @@ Template.heatmapgraph.onRendered(function() {
     dots.enter().append('circle')
       .attr('class', 'dot')
       .attr('r', 10)
-      .attr('cx', d => { return d.x * 20; })
-      .attr('cy', d => { return d.y * 20; })
+      .attr('cx', d => { return d.x; })
+      .attr('cy', d => { return d.y; })
       .style('fill', d => { return color(d.intensity); });
     // exiting elements
     dots.exit().remove();
@@ -62,33 +62,33 @@ Template.heatmapgraph.onRendered(function() {
 function sampleToDataset(d) {
   return [
     {
-      x: 0,
-      y: 0,
+      x: 315,
+      y: 45,
       intensity: d.data1,
     },
     {
-      x: 1,
-      y: 0,
+      x: 300,
+      y: 80,
       intensity: d.data2,
     },
     {
-      x: 1,
-      y: 1,
+      x: 345,
+      y: 60,
       intensity: d.data3,
     },
     {
-      x: 2,
-      y: 1,
+      x: 380,
+      y: 105,
       intensity: d.data4,
     },
     {
-      x: 2,
-      y: 2,
+      x: 350,
+      y: 200,
       intensity: d.data5,
     },
     {
-      x: 3,
-      y: 2,
+      x: 345,
+      y: 300,
       intensity: d.data6,
     },
   ];
