@@ -114,6 +114,11 @@ nav {
     &:focus{
       outline: 0;
     }
+
+    &[type="number"] {
+      width: 30px;
+      padding: 0;
+    }
   }
 }
 

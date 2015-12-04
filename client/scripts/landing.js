@@ -3,42 +3,30 @@
 // golly isn't meteor such dandy software?
 
 Template.landing.helpers({
-  tasks: _ => {
-    if (Session.get("hideCompleted")) {
-      return Tasks.find({ checked: { $ne: true } }, { sort: { createdAt: -1 }});
-    } else {
-      return Tasks.find({}, { sort: { createdAt: -1 } });
-    }
+  mockdata: _ => {
+    return MockData.find({});
   },
-  hideCompleted: function() {
-    return Session.get("hideCompleted");
-  }
 });
 
 Template.landing.events({
   "submit .new-task": event => {
     event.preventDefault();
-    var text = event.target.text.value;
 
-    Tasks.insert({
-      text,
-      createdAt: new Date()
+    MockData.insert({
+      timestamp: event.target.text.value,
+      data1: event.target.data1.value,
+      data2: event.target.data2.value,
+      data3: event.target.data3.value,
+      data4: event.target.data4.value,
+      data5: event.target.data5.value,
+      data6: event.target.data6.value,
+      createdAt: new Date(),
     });
-
-    event.target.text.value = "";
   },
-  "change .hide-completed input": event => {
-    Session.set("hideCompleted", event.target.checked);
-  }
 });
 
-Template.task.events({
-  "click .toggle-checked": function() {
-    Tasks.update(this._id, {
-      $set: { checked: ! this.checked }
-    });
-  },
+Template.mockdataentry.events({
   "click .delete": function() {
-    Tasks.remove(this._id);
+    MockData.remove(this._id);
   }
 });

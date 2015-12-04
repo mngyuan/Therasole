@@ -1,3 +1,6 @@
+Tasks    = new Mongo.Collection("tasks");
+MockData = new Mongo.Collection("mockdata");
+
 var serviceUUIDs =  [ '713d0000503e4c75ba943148f18d941e' ]
 var charUUIDs = [ '713d0002503e4c75ba943148f18d941e', '713d0003503e4c75ba943148f18d941e', '713d0004503e4c75ba943148f18d941e' ]
 var notifyChar = null;

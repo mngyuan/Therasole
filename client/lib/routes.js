@@ -1,4 +1,5 @@
-Tasks = new Mongo.Collection("tasks");
+Tasks    = new Mongo.Collection("tasks");
+MockData = new Mongo.Collection("mockdata");
 
 Router.configure({
   layoutTemplate: 'main',
