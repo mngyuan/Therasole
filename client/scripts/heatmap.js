@@ -25,6 +25,7 @@ Template.heatmapgraph.onRendered(function() {
 
   Deps.autorun(_ => {
     var data = MockData.find().fetch();
+    var i    = Math.min(Math.floor(eggtimer_pos.get() * data.length), data.length-1);
     data.forEach(d => {
       d.data1 = +d.data1;
       d.data2 = +d.data2;
@@ -33,18 +34,24 @@ Template.heatmapgraph.onRendered(function() {
       d.data5 = +d.data5;
       d.data6 = +d.data6;
     });
-    console.log(data);
+    console.log(data, i);
 
-    data = sampleToDataset(data[0]);
+    data = sampleToDataset(data[i]);
 
-    svg.selectAll('.dot')
-      .data(data)
-      .enter().append('circle')
-        .attr('class', 'dot')
-        .attr('r', 10)
-        .attr('cx', d => { return d.x * 20; })
-        .attr('cy', d => { return d.y * 20; })
-        .style('fill', d => { return color(d.intensity); });
+    // data join
+    var dots = svg.selectAll('.dot')
+      .data(data);
+    // update
+    dots.style('fill', d => { return color(d.intensity); });
+    // new elements
+    dots.enter().append('circle')
+      .attr('class', 'dot')
+      .attr('r', 10)
+      .attr('cx', d => { return d.x * 20; })
+      .attr('cy', d => { return d.y * 20; })
+      .style('fill', d => { return color(d.intensity); });
+    // exiting elements
+    dots.exit().remove();
   });
 });
 
