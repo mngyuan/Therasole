@@ -45,14 +45,14 @@ $timeline-width: $segment-width*24 + 100;
     }
   }
   .eggtimer-indicator {
-    font-weight: bold;
-    font-size: 1.2em;
-    text-align: center;
-    background-color: rgba(255,0,0,0.4);
     margin: 0 auto;
     bottom: 0;
     height: $eggtimer-height;
-    width: 2px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid rgba(255,0,0,0.4);
     position: absolute;
     left: 50%;
   }
