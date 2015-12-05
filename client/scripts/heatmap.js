@@ -10,7 +10,7 @@ Template.heatmapgraph.onRendered(function() {
   var yScale = d3.scale.linear().range([0, height]);
 
   var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .range(["#00FF00","#17E800","#2ED100","#46B900","#5DA200","#748B00","#8B7400","#A25D00","#B94600","#D12E00","#E81700","#FF0000"]);
 
   var svg = d3.select("#heatmapgraph")
     .attr("width", width + margin.left + margin.right)
@@ -34,7 +34,7 @@ Template.heatmapgraph.onRendered(function() {
       d.data5 = +d.data5;
       d.data6 = +d.data6;
     });
-    console.log(data, i);
+    console.log(i, data.length, data[i]);
 
     data = sampleToDataset(data[i]);
 

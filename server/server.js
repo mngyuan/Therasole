@@ -37,29 +37,78 @@ var requestData = function(){
 	writeChar.write(new Buffer([0x01]));
 }
 
-var onServiceDiscovery = function(error, services, chars){
+function convertTimestamp(t, start, end) {
+  var newT = 0;
+  for (var i = start; i < end; i++) {
+    newT = (newT << 8) + t[i];
+  }
+  return newT;
+}
+
+var onServiceDiscovery = Meteor.bindEnvironment(function(error, services, chars){
 	if(error){
 		console.log('error discovering services');
 	} else {
 		console.log('discovered services');
 		notifyChar = chars[2];
 		writeChar = chars[0];
-		notifyChar.on('read', function(data, isNotif){
-			if(isNotif){
-				console.log('data from device : ', data);
+
+    var dataHandler = function(data, isNotif) {
+			if (isNotif) {
+				console.log('data from device : ', data, data.length);
+        if (data.length === 8) {
+          // timestamp
+          firstTime = (new Date()).getTime();
+          readTimestamp = convertTimestamp(data, 0, 8);
+          return;
+        }
+
+        var timestamp = firstTime - (readTimestamp - convertTimestamp(data, 0,8));
+        timestamp = timestamp / 1000;
+        var data1 = data[9];
+        var data2 = data[11];
+        var data3 = data[13];
+        var data4 = data[15];
+        var data5 = data[17];
+        var data6 = data[19];
+
+        console.log('putting into mockdata', {
+          timestamp,
+          data1,
+          data2,
+          data3,
+          data4,
+          data5,
+          data6,
+          createdAt: new Date(),
+        });
+        MockData.insert({
+          timestamp,
+          data1,
+          data2,
+          data3,
+          data4,
+          data5,
+          data6,
+          createdAt: new Date(),
+        });
 			}
-		});
+    }
+
+    var readTimestamp = 0;
+    var firstTime = 0;
+		notifyChar.on('read', Meteor.bindEnvironment(dataHandler));
 		notifyChar.notify(true, function(err){
 			if(err){
 				console.log('error enabling notifications', err);
 			} else {
 				console.log('enabled notifications');
 				requestData();
-				setInterval(requestData, 1000);
+				setInterval(requestData, 2000);
 			}
 		});
 	}
-}
+});
 
 var connectDevice = function(peripheral, name) {
 	peripheral.connect(function(error){
