@@ -3,15 +3,15 @@ MockData = new Mongo.Collection("mockdata");
 
 Router.configure({
   layoutTemplate: 'main',
-  title: 'FitSole',
+  title: 'Therasole',
 });
 Router.route('/', {
   name     : 'landing',
   template : 'landing',
 });
-Router.route('/heatmap', { title: 'Heatmap | Fitsole' });
-Router.route('/balance', { title: 'Balance | Fitsole' });
-Router.route('/graphs', { title: 'Graphs | Fitsole' });
+Router.route('/heatmap', { title: 'Heatmap | Therasole' });
+Router.route('/balance', { title: 'Balance | Therasole' });
+Router.route('/graphs', { title: 'Graphs | Therasole' });
 Router.route('/graphs/:_filter', {
   template: 'graphs',
   data: function() {
@@ -20,4 +20,4 @@ Router.route('/graphs/:_filter', {
   }
 });
 // Router.route('/share');
-Router.route('/settings', { title: 'Settings | Fitsole' });
+Router.route('/settings', { title: 'Settings | Therasole' });
