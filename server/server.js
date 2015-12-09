@@ -103,8 +103,9 @@ var onServiceDiscovery = Meteor.bindEnvironment(function(error, services, chars)
 				console.log('error enabling notifications', err);
 			} else {
 				console.log('enabled notifications');
+				writeChar.write(new Buffer([0x02]));
 				requestData();
-				setInterval(requestData, 2000);
+				setInterval(requestData, 500);
 			}
 		});
 	}
