@@ -13,6 +13,9 @@
 
 <template name="navigation">
   <nav>
+    <div id="nameplate">
+      <a href="{{pathFor route='landing'}}"><img src="/i/therasole.png"></a>
+    </div>
     <ul>
       <li class="{{isActiveRoute regex='heatmap|balance'}}"><a href="{{pathFor route='heatmap'}}">Heatmap</a></li>
       <li class="{{isActivePath regex='graphs|graphs\\/day|graphs\\/week|graphs\\/month'}}"><a href="{{pathFor route='graphs'}}">Graphs</a></li>

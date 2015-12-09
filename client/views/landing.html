@@ -1,45 +1,5 @@
 <template name="landing">
   <header>
     <h1>Therasole</h1>
-
-    <label class="hide-completed">
-      <input type="checkbox" checked="{{hideCompleted}}" />
-      Hide completed tasks
-    </label>
-    <form class="new-task">
-      <input type="text" name="text" placeholder="Type to add new data readings"/>
-      <input type="number" name="data1" placeholder="1"/>
-      <input type="number" name="data2" placeholder="2"/>
-      <input type="number" name="data3" placeholder="3"/>
-      <input type="number" name="data4" placeholder="4"/>
-      <input type="number" name="data5" placeholder="5"/>
-      <input type="number" name="data6" placeholder="6"/>
-    </form>
   </header>
-
-  <ul>
-    <!-- {{#each tasks}}
-      {{> task}}
-    {{/each}} -->
-    {{#each mockdata}}
-      {{>mockdataentry}}
-    {{/each}}
-  </ul>
-</template>
-
-<template name="task">
-  <li class="item {{#if checked}}checked{{/if}}">
-    <button class="delete">&times;</button>
-
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-    <span class="text">{{text}}</span>
-  </li>
-</template>
-
-<template name="mockdataentry">
-  <li class="item {{#if checked}}checked{{/if}}">
-    <button class="delete">&times;</button>
-    {{timestamp}} {{data1}} {{data2}} {{data3}} {{data4}} {{data5}} {{data6}}
-  </li>
 </template>
