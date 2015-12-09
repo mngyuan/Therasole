@@ -73,21 +73,30 @@ header {
   margin-bottom: 20px;
 }
 
+.wrapper {
+  margin-left: 250px;
+}
+
 nav {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 200px;
   line-height: 50px;
+  background-color: $offblack;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: white;
+
   ul {
     width: 100%;
-    height: 50px;
+    background: initial;
     li {
-      width: 24%; /* sigh idk */
+      width: 100%;
       box-sizing: border-box;
-      display: inline-block;
       padding: 0;
-      text-align: center;
+      padding-left: 15px;
       &.active {
         color: $accent-pink;
       }
