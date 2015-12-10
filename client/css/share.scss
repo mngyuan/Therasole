@@ -1,3 +1,27 @@
+$info-height: 100px;
+
+.info-container {
+  height: $info-height;
+  width: 100%;
+
+  .info-profile {
+    float: left;
+    width: 20%;
+    height: $info-height;
+    img {
+      height: 100%;
+    }
+  }
+
+  .info-text {
+    box-sizing: border-box;
+    padding: 5px 10px;
+    height: $info-height;
+    width: 79%;
+    float: left;
+  }
+}
+
 .message-container {
   width: 100%;
   height: 400px;
@@ -35,6 +59,7 @@
     .send-button {
       width: 60px;
       float: right;
+      text-align: center;
     }
   }
 }

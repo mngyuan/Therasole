@@ -5,9 +5,15 @@
     </h1>
   </header>
 
-  <img src="doctor.png">
+  <div class="info-container">
+    <div class="info-profile">
+      <img src="/i/doctor.jpg">
+    </div>
+    <div class="info-text">
+      <b>Status:</b> online 3 hours ago
+    </div>
+  </div>
   <br>
-  <b>Status:</b> online 3 hours ago<br>
   <div class="message-container">
     <div class="message-holder">
       <div class="message message-own">Hello</div>
@@ -15,10 +21,59 @@
       <div class="message message-other">Talking with your physician is serious business Prashan.</div>
       <div class="message message-own">I've been California dreaming</div>
       <div class="message message-other">I'm done with you.</div>
+      {{#each messages}}
+        {{>message}}
+      {{/each}}
     </div>
     <div class="message-input">
-      <input type="text" placeholder="Send a message"/>
+      <input class="message-text" type="text" placeholder="Send a message"/>
       <div class="send-button">Send</div>
     </div>
+  </div>
+</template>
+
+<template name="message">
+  <div class="message {{#if who}}message-other{{else}}message-own{{/if}}">
+    {{msg}}
+  </div>
+</template>
+
+<template name="therapist">
+  <header>
+    <h1>
+      <a class="inactive" href="{{pathFor route='share'}}">Doctor</a> | <a>Therapist</a>
+    </h1>
+  </header>
+
+  <div class="info-container">
+    <div class="info-profile">
+      <img src="/i/therapist.jpg">
+    </div>
+    <div class="info-text">
+      <b>Status:</b> online 1 hour ago
+    </div>
+  </div>
+  <br>
+  <div class="message-container">
+    <div class="message-holder">
+      <div class="message message-other">Hello</div>
+      <div class="message message-other">It's me</div>
+      <div class="message message-own">Talking with your physician is serious business Prashan.</div>
+      <div class="message message-other">I've been California dreaming</div>
+      <div class="message message-own">I'm done with you.</div>
+      {{#each messages}}
+        {{>oppositemessage}}
+      {{/each}}
+    </div>
+    <div class="message-input">
+      <input class="message-text" type="text" placeholder="Send a message"/>
+      <div class="send-button">Send</div>
+    </div>
+  </div>
+</template>
+
+<template name="oppositemessage">
+  <div class="message {{#if who}}message-own{{else}}message-other{{/if}}">
+    {{msg}}
   </div>
 </template>

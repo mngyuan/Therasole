@@ -1,5 +1,6 @@
 Tasks    = new Mongo.Collection("tasks");
 MockData = new Mongo.Collection("mockdata");
+Messages = new Mongo.Collection("messages");
 
 Router.configure({
   layoutTemplate: 'main',
@@ -20,4 +21,5 @@ Router.route('/graphs/:_filter', {
   }
 });
 Router.route('/share', { title: 'Share | Therasole' });
+Router.route('/therapist', { title: 'Share | Therasole' });
 Router.route('/settings', { title: 'Settings | Therasole' });
