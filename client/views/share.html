@@ -1,0 +1,24 @@
+<template name="share">
+  <header>
+    <h1>
+      <a>Doctor</a> | <a class="inactive" href="{{pathFor route='therapist'}}">Therapist</a>
+    </h1>
+  </header>
+
+  <img src="doctor.png">
+  <br>
+  <b>Status:</b> online 3 hours ago<br>
+  <div class="message-container">
+    <div class="message-holder">
+      <div class="message message-own">Hello</div>
+      <div class="message message-own">It's me</div>
+      <div class="message message-other">Talking with your physician is serious business Prashan.</div>
+      <div class="message message-own">I've been California dreaming</div>
+      <div class="message message-other">I'm done with you.</div>
+    </div>
+    <div class="message-input">
+      <input type="text" placeholder="Send a message"/>
+      <div class="send-button">Send</div>
+    </div>
+  </div>
+</template>

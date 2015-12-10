@@ -7,7 +7,7 @@ Router.configure({
 });
 Router.route('/', {
   name     : 'landing',
-  template : 'landing',
+  template : 'heatmap',
 });
 Router.route('/heatmap', { title: 'Heatmap | Therasole' });
 Router.route('/balance', { title: 'Balance | Therasole' });
@@ -19,5 +19,5 @@ Router.route('/graphs/:_filter', {
     return {filter};
   }
 });
-// Router.route('/share');
+Router.route('/share', { title: 'Share | Therasole' });
 Router.route('/settings', { title: 'Settings | Therasole' });
